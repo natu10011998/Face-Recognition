@@ -23,17 +23,17 @@ args = vars(ap.parse_args())
 
 # load our serialized face detector from disk
 print("[INFO] loading face detector...")
-protoPath = "C:/Users/MSI/Desktop/GitClone/Face-Recognition/face_detection_model/deploy.prototxt.txt"
-modelPath = "C:/Users/MSI/Desktop/GitClone/Face-Recognition/face_detection_model/res10_300x300_ssd_iter_140000.caffemodel"
+protoPath = "../Face-Recognition/face_detection_model/deploy.prototxt.txt"
+modelPath = "../Face-Recognition/face_detection_model/res10_300x300_ssd_iter_140000.caffemodel"
 detector = cv2.dnn.readNetFromCaffe(protoPath, modelPath)
 
 # load our serialized face embedding model from disk
 print("[INFO] loading face recognizer...")
-embedder = cv2.dnn.readNetFromTorch("C:/Users/MSI/Desktop/GitClone/Face-Recognition/openface_nn4.small2.v1.t7")
+embedder = cv2.dnn.readNetFromTorch("../Face-Recognition/openface_nn4.small2.v1.t7")
 
 # grab the paths to the input images in our dataset
 print("[INFO] quantifying faces...")
-imagePaths = list(paths.list_images("C:/Users/MSI/Desktop/GitClone/Face-Recognition/dataset"))
+imagePaths = list(paths.list_images("../Face-Recognition/dataset"))
 
 # initialize our lists of extracted facial embeddings and
 # corresponding people names

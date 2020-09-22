@@ -24,21 +24,21 @@ args = vars(ap.parse_args())
 
 # load our serialized face detector from disk
 print("[INFO] loading face detector...")
-protoPath = "C:/Users/MSI/Desktop/GitClone/Face-Recognition/face_detection_model/deploy.prototxt.txt"
-modelPath = "C:/Users/MSI/Desktop/GitClone/Face-Recognition/face_detection_model/res10_300x300_ssd_iter_140000.caffemodel"
+protoPath = "../Face-Recognition/face_detection_model/deploy.prototxt.txt"
+modelPath = "../Face-Recognition/face_detection_model/res10_300x300_ssd_iter_140000.caffemodel"
 detector = cv2.dnn.readNetFromCaffe(protoPath, modelPath)
 
 # load our serialized face embedding model from disk
 print("[INFO] loading face recognizer...")
-embedder = cv2.dnn.readNetFromTorch("C:/Users/MSI/Desktop/GitClone/Face-Recognition/openface_nn4.small2.v1.t7")
+embedder = cv2.dnn.readNetFromTorch("../Face-Recognition/openface_nn4.small2.v1.t7")
 
 # load the actual face recognition model along with the label encoder
-recognizer = pickle.loads(open("C:/Users/MSI/Desktop/GitClone/Face-Recognition/output/recognizer.pickle", "rb").read())
-le = pickle.loads(open("C:/Users/MSI/Desktop/GitClone/Face-Recognition/output/le.pickle", "rb").read())
+recognizer = pickle.loads(open("../Face-Recognition/output/recognizer.pickle", "rb").read())
+le = pickle.loads(open("../Face-Recognition/output/le.pickle", "rb").read())
 
 # load the image, resize it to have a width of 600 pixels (while
 # maintaining the aspect ratio), and then grab the image dimensions
-image = cv2.imread("C:/Users/MSI/Desktop/GitClone/Face-Recognition/images/jessica-alba.jpg")
+image = cv2.imread("../Face-Recognition/images/johnny-depp-1-2.jpg")
 image = imutils.resize(image, width=600)
 (h, w) = image.shape[:2]
 
@@ -92,6 +92,7 @@ for i in range(0, detections.shape[2]):
 			(0, 0, 255), 2)
 		cv2.putText(image, text, (startX, y),
 			cv2.FONT_HERSHEY_SIMPLEX, 0.45, (0, 0, 255), 2)
+			
 # show the output image
 cv2.imshow("Image", image)
 cv2.waitKey(0)

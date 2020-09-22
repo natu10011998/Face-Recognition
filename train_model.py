@@ -16,7 +16,7 @@ args = vars(ap.parse_args())
 
 # load the face embeddings
 print("[INFO] loading face embeddings...")
-data = pickle.loads(open("C:/Users/MSI/Desktop/GitClone/Face-Recognition/output/embeddings.pickle", "rb").read())
+data = pickle.loads(open("../Face-Recognition/output/embeddings.pickle", "rb").read())
 
 # encode the labels
 print("[INFO] encoding labels...")
