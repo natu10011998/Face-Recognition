@@ -38,7 +38,7 @@ le = pickle.loads(open("../Face-Recognition/output/le.pickle", "rb").read())
 
 # load the image, resize it to have a width of 600 pixels (while
 # maintaining the aspect ratio), and then grab the image dimensions
-image = cv2.imread("../Face-Recognition/images/johnny-depp-1-2.jpg")
+image = cv2.imread("../Face-Recognition/images/13221253_276880345982782_3252160961183025385_o.jpg")
 image = imutils.resize(image, width=600)
 (h, w) = image.shape[:2]
 

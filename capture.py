@@ -3,21 +3,30 @@ import cv2
 import time
 
 cap = cv2.VideoCapture(0)
-i = 0
-j = 10
+count = 0
+total = 10
+folder_name = input("Enter Folder Name: ")
 
 while(cap.isOpened()):
   ret, frame = cap.read()
+  
   # Display the frame
-  cv2.imshow('frame',frame)
-  # Wait for 25ms
+  cv2.imshow('frame', frame)
+
   if ret == False:
     break
-  cv2.imwrite('../Face-Recognition/test_cap/' + str(i) + '.jpg',frame)
+  
+  # Save frame
+  cv2.imwrite('../Face-Recognition/dataset/' + file_dir + '/' + str(i) + '.jpg', frame)
 
   if cv2.waitKey(1) & 0xFF == ord('q'):
     break
-  i+=1
+
+  # Check total and break
+  count+=1
+  if count == total:
+    break
+
   time.sleep(0.5)
 
 
