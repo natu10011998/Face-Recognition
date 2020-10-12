@@ -43,10 +43,10 @@ while(cap.isOpened()):
     break
 
   # Check total and break
-  count += 1
   if count == total:
     break
-
+  
+  count += 1
   time.sleep(0.5)
 
 
