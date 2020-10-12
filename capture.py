@@ -36,7 +36,7 @@ while(cap.isOpened()):
     break
   
   # Save frame
-  cv2.imwrite(parent_dir + file_dir + '/' + str(count) + '.jpg', frame)
+  cv2.imwrite(parent_dir + folder_name + '/' + str(count + 1) + '.jpg', frame)
   print("Capture {}/{}".format(count + 1, total))
 
   if cv2.waitKey(1) & 0xFF == ord('q'):
@@ -45,7 +45,7 @@ while(cap.isOpened()):
   # Check total and break
   if count == total:
     break
-  
+
   count += 1
   time.sleep(0.5)
 
