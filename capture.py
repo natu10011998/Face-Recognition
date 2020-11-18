@@ -6,8 +6,8 @@ import shutil
 import sys
 
 cap = cv2.VideoCapture(0)
-count = 0
-total = 10
+count = 1
+total = 100
 parent_dir = "../Face-Recognition/dataset/"
 folder_name = input("Enter Folder Name: ")
 
@@ -37,7 +37,7 @@ while(cap.isOpened()):
   
   # Save frame
   cv2.imwrite(parent_dir + folder_name + '/' + str(count + 1) + '.jpg', frame)
-  print("Capture {}/{}".format(count + 1, total))
+  print("Capture {}/{}".format(count, total))
 
   if cv2.waitKey(1) & 0xFF == ord('q'):
     break
